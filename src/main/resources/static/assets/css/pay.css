@@ -1,0 +1,101 @@
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.t-right {
+	text-align:right;
+}
+.t-center {
+	text-align:center;
+}
+.container-padding {
+	padding:20px;
+}
+.row-title {
+	width:100%;
+	float:left;
+  	padding: 0 10px;
+	border-bottom:1px solid #000000;
+	line-height:30px;
+}
+.row-title span {
+	font-weight:600;
+	font-size: 15px;
+}
+.cards {
+}
+.cards .card {
+	padding:10px 7px;
+}
+.cards .card.on .bg {
+	background-color:#000000;
+}
+.cards .card .bg {
+	position:relative;
+	height:80px;
+	border-radius:3px;
+	background-color:#666666;
+	padding:0 3px;
+}
+.cards .card .card-name{
+	position:absolute;
+	color:#ffffff;
+	font-weight:600;
+	font-size: 13px;
+	margin-top:5px;
+	margin-left:5px;
+}
+.cards .card .card-num {
+	position:absolute;
+	width:100%;
+	top:50%;
+	margin-top:-9px;
+}
+.cards .card .card-num .card-num-border {
+	padding:0 2px;
+}
+.cards .card .card-num .card-num-item {
+	border:1px solid #bbbbbb;
+	text-align:center;
+	color:#ffffff;
+	font-size:11px;
+	line-height:16px;
+}
+.cards .card .btn-delete {
+	position:absolute;
+	right:0px;
+	bottom:5px;
+	font-size:11px;
+}
+.info {
+  	padding: 10px;
+	color:#666666;
+	font-size:13px;
+}
+.padding-l-0 {
+	padding-left:0;
+}
+.padding-r-0 {
+	padding-right:0;
+}
+.contents, .sumcontents {
+	padding:5px 0;
+	font-size:14px;
+}
+.contents {
+	color:#666666;
+	border-bottom:1px solid #9e9e9e;
+}
+.content-row {
+	padding:5px 0;
+}
+.sumcontents {
+	color:#000000;
+	font-weight:600;
+	border-top:1px solid #000000;
+}
+.border-bottom-gray {
+	border-bottom:1px solid #9e9e9e;
+}

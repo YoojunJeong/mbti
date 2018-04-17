@@ -1,0 +1,45 @@
+.tableconfirm {
+	position : relative;	
+	padding-right: 12px;
+}
+.inline {
+	display:inline-block;
+}
+.marginl5 {
+	margin-left:5px;
+}
+.tr-row-2 {
+	background-color:#d9534f;
+	color:#ffffff;
+}
+.ui-sortable {
+    padding: 0;
+}
+.ui-state-default {
+    position: relative;
+    border: none;
+    background: none;
+    float: left;
+    list-style: none;
+    cursor: pointer;
+}
+.ui-state-default .btn-delete-item-img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    right: 0;
+    text-align: center;
+}
+.ui-state-default .btn-delete-item-img:before {
+    content: 'X';
+}
+.item-img {
+    height: 200px;
+    margin: 5px;
+}
+.padding-0 {
+	padding:0;
+}

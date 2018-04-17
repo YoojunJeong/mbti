@@ -1,0 +1,27 @@
+.board-head, .board-head td {
+	width:100%;
+	height:65px;
+	padding:0 24px;
+	background-color:#ffffff;
+	font-weight:bold;
+	border-bottom:1px solid #e2e2e2;
+}
+.board-head .board-head-date {
+	margin-top:3px;
+	font-size:11px;
+	color:#8e8e8e;
+	font-weight:normal;
+}
+.board-container {
+	padding:17px 24px;
+	overflow-y:auto;
+}
+.board-container img {
+	max-width:100% !important;
+	height:auto !important;
+}
+
+a, a:hover, a:active, a:focus {
+	color:#000000;
+	text-decoration:none;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+ 
+	<!-- Appender, Layout 설정 -->
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-5p %d{MM-dd HH:mm:ss} %m  (%F:%L) \n" />
+		</Console>
+		
+		<RollingFile name="rollingFile" fileName="../../logs/adid/adid.log" filePattern="../../logs/adid/%d{yyyy-MM-dd}/adid.log.%d{yyyy-MM-dd}">
+			<PatternLayout pattern="%-5p %d{MM-dd HH:mm:ss} %m  (%F:%L) \n" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100MB"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+ 
+	<!-- Logger 설정 -->
+	<Loggers>
+		<Logger name="org.apache.commons" level="DEBUG" additivity="false" />
+		<Logger name="org.springframework" level="DEBUG" additivity="false" />
+		<Logger name="org.mybatis" level="DEBUG" additivity="false" />
+		<Logger name="org.apache.ibatis" level="DEBUG" additivity="false" />
+		<Logger name="java.sql" level="DEBUG" additivity="false" />
+		<Logger name="java.sql.ResultSet" level="DEBUG" additivity="false" />
+		<Logger name="java.sql.Connection" level="DEBUG" additivity="false" />
+		<Logger name="java.sql.Statement" level="DEBUG" additivity="false" />
+		<Logger name="java.sql.PreparedStatement" level="DEBUG" additivity="false" />
+    
+		<Root level="DEBUG">
+        	<AppenderRef ref="console" />
+        	<AppenderRef ref="rollingFile" />
+    	</Root>
+	</Loggers>
+ 
+</Configuration>

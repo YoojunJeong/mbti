@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.genieworks.api.dao.CommonDao">
+    <select id="getTables"  resultType="JSONObject">
+        SELECT * FROM FAQS LIMIT 1
+    </select>
+
+    <select id="getQuery" parameterType="java.util.Map"  resultType="JSONObject">
+        ${query}
+    </select>
+
+    <select id="selectOne" parameterType="java.util.Map"  resultType="JSONObject">
+        ${query}
+    </select>
+
+    <insert id="insert" parameterType="java.util.Map">
+        ${query}
+        <selectKey resultType="java.lang.Long" keyProperty="___SELECT_KEY___" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <update id="update" parameterType="java.util.Map">
+        ${query}
+    </update>
+    
+    <delete id="delete">
+        ${query}
+    </delete>
+
+</mapper>
