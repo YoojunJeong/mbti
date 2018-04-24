@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class BaseRootApplication {
+public class AdminApiApplication {
 
     public static void main(String[] args) {
         String profile = System.getProperty("spring.profiles.active");
@@ -16,7 +16,7 @@ public class BaseRootApplication {
         if (profile == null) {
             System.setProperty("spring.profiles.active", "dev");
         }
-        ConfigurableApplicationContext ctx = SpringApplication.run(BaseRootApplication.class, args);
+        ConfigurableApplicationContext ctx = SpringApplication.run(AdminApiApplication.class, args);
         System.out.println(":: Picnique ADMIN [" + ObjectUtil.join(ctx.getEnvironment().getActiveProfiles()) + "]Server ON");
     }
 }

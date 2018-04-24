@@ -15,7 +15,6 @@ import java.util.Map;
 @SuppressWarnings({"unchecked","rawtypes","unused" })
 public class DemoService {
 
-	@Qualifier("commonDao")
 	@Autowired
 	private CommonDao commonDao;
 	
@@ -24,11 +23,11 @@ public class DemoService {
 	public JSONObject demoService() {
 
 		JSONObject rtnObj = new JSONObject();
-		rtnObj.put("result1", commonDao.getTables());
+		rtnObj.put("result1", commonDao.selectProduct());
 
-		Map<String, String> data = new HashMap();
-		data.put("query","SELECT * FROM FAQS LIMIT 1");
-		rtnObj.put("result2", commonDao.getQuery(data));
+//		Map<String, String> data = new HashMap();
+//		data.put("query","SELECT * FROM FAQS LIMIT 1");
+//		rtnObj.put("result2", commonDao.getQuery(data));
 
 		return rtnObj;
 	}

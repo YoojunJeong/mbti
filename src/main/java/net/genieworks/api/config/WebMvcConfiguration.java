@@ -150,51 +150,51 @@ public class WebMvcConfiguration {
     @Bean
     public RestTemplate restTemplate() {
         
-    		// 하단에 정의된 메세지 컨버터들은 스프링부트에 기본적으로 생성되는 컨버터들을 사용하지 않는다.
-    		// RestTemplate 에서 사용하는 컨버터에서만 사용되는 추가 설정이 Bixby Client와의 데이터 교환에 영향을 주지  
-    		// 않게 하기 위해 RestTemplate 에서 사용하는 설정은 완전히 분리한다. 
+        // 하단에 정의된 메세지 컨버터들은 스프링부트에 기본적으로 생성되는 컨버터들을 사용하지 않는다.
+        // RestTemplate 에서 사용하는 컨버터에서만 사용되는 추가 설정이 Bixby Client와의 데이터 교환에 영향을 주지
+        // 않게 하기 위해 RestTemplate 에서 사용하는 설정은 완전히 분리한다.
         MediaType mediaType = MediaType.parseMediaType("text/html;charset=utf-8");
-		HttpMessageConverter<?> byteArrayHttpMessageConverter 			= new ByteArrayHttpMessageConverter();
-		HttpMessageConverter<?> formHttpMessageConverter 					= new FormHttpMessageConverter();
-		HttpMessageConverter<?> resourceHttpMessageConverter 				= new ResourceHttpMessageConverter();
-		HttpMessageConverter<?> sourceHttpMessageConverter 				= new SourceHttpMessageConverter<Source>();
-		HttpMessageConverter<?> allEncompassingFormHttpMessageConverter 	= new AllEncompassingFormHttpMessageConverter();
+        HttpMessageConverter<?> byteArrayHttpMessageConverter               = new ByteArrayHttpMessageConverter();
+        HttpMessageConverter<?> formHttpMessageConverter                    = new FormHttpMessageConverter();
+        HttpMessageConverter<?> resourceHttpMessageConverter                = new ResourceHttpMessageConverter();
+        HttpMessageConverter<?> sourceHttpMessageConverter                  = new SourceHttpMessageConverter<Source>();
+        HttpMessageConverter<?> allEncompassingFormHttpMessageConverter     = new AllEncompassingFormHttpMessageConverter();
 
-		
-		// 신비운에서 XML, JSON 로 데이터 전달해줄 때 응답 컨텐트 타입이 text/html 로 내려옴
-		// 마샬링, 언마샬링 시 text/html 컨텐츠로 처리할 수 있도록 하기 위해 supportMediaType 추가.
-		HttpMessageConverter<?> jaxb2RootElementMessageConverter 			= new Jaxb2RootElementHttpMessageConverter();
-		List<MediaType> jaxbSupportMediaTypes = new ArrayList<>();
-		jaxbSupportMediaTypes.addAll(jaxb2RootElementMessageConverter.getSupportedMediaTypes());
-		jaxbSupportMediaTypes.add(mediaType);
-		((AbstractHttpMessageConverter<?>)jaxb2RootElementMessageConverter).setSupportedMediaTypes(jaxbSupportMediaTypes);
 
-		HttpMessageConverter<?> mappingJackson2HttpMessageConverter 		= new MappingJackson2HttpMessageConverter();
-		List<MediaType> jacksonSupportMediaTypes = new ArrayList<>();
-		jacksonSupportMediaTypes.addAll(mappingJackson2HttpMessageConverter.getSupportedMediaTypes());
-		jacksonSupportMediaTypes.add(mediaType);
-		jacksonSupportMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
-		((AbstractHttpMessageConverter<?>)mappingJackson2HttpMessageConverter).setSupportedMediaTypes(jacksonSupportMediaTypes);
-        
-		// RestTemplate 에서 사용할 메세지 컨버터들을 List 에 담는다.
+        // 신비운에서 XML, JSON 로 데이터 전달해줄 때 응답 컨텐트 타입이 text/html 로 내려옴
+        // 마샬링, 언마샬링 시 text/html 컨텐츠로 처리할 수 있도록 하기 위해 supportMediaType 추가.
+        HttpMessageConverter<?> jaxb2RootElementMessageConverter            = new Jaxb2RootElementHttpMessageConverter();
+        List<MediaType> jaxbSupportMediaTypes = new ArrayList<>();
+        jaxbSupportMediaTypes.addAll(jaxb2RootElementMessageConverter.getSupportedMediaTypes());
+        jaxbSupportMediaTypes.add(mediaType);
+        ((AbstractHttpMessageConverter<?>)jaxb2RootElementMessageConverter).setSupportedMediaTypes(jaxbSupportMediaTypes);
+
+        HttpMessageConverter<?> mappingJackson2HttpMessageConverter         = new MappingJackson2HttpMessageConverter();
+        List<MediaType> jacksonSupportMediaTypes = new ArrayList<>();
+        jacksonSupportMediaTypes.addAll(mappingJackson2HttpMessageConverter.getSupportedMediaTypes());
+        jacksonSupportMediaTypes.add(mediaType);
+        jacksonSupportMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+        ((AbstractHttpMessageConverter<?>)mappingJackson2HttpMessageConverter).setSupportedMediaTypes(jacksonSupportMediaTypes);
+
+        // RestTemplate 에서 사용할 메세지 컨버터들을 List 에 담는다.
         List<HttpMessageConverter<?>> converters = new ArrayList<>();
-		converters.add(byteArrayHttpMessageConverter);			
-		converters.add(formHttpMessageConverter);	 					
-		converters.add(responseBodyConverter());	 					
-		converters.add(resourceHttpMessageConverter);	 				
-		converters.add(sourceHttpMessageConverter);	 					
-		converters.add(allEncompassingFormHttpMessageConverter);	 
-		converters.add(jaxb2RootElementMessageConverter);	 			
-		converters.add(mappingJackson2HttpMessageConverter);	 		
-		
-        // RestTemplate 인스턴스를 생성한다. 
+        converters.add(byteArrayHttpMessageConverter);
+        converters.add(formHttpMessageConverter);
+        converters.add(responseBodyConverter());
+        converters.add(resourceHttpMessageConverter);
+        converters.add(sourceHttpMessageConverter);
+        converters.add(allEncompassingFormHttpMessageConverter);
+        converters.add(jaxb2RootElementMessageConverter);
+        converters.add(mappingJackson2HttpMessageConverter);
+
+        // RestTemplate 인스턴스를 생성한다.
         RestTemplate restTemplate = new RestTemplate(bufferingClientHttpRequestFactory());
-        
-        // 기본으로 설정되는 메세지컨버터들을 다 지우고 
+
+        // 기본으로 설정되는 메세지컨버터들을 다 지우고
         restTemplate.getMessageConverters().clear();
         // 위에서 생성한 메세지 컨버터들을 추가한다.
         restTemplate.getMessageConverters().addAll(converters);
-        
+
 //		// RestTemplate 로 데이터 교환시 발생하는 Request, Response 등의 로깅을 담당할
 //		// Interceptor 를 추가한다..
 //        List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();

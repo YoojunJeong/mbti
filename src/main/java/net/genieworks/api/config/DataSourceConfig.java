@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = "net.genieworks.api.dao")
+@MapperScan(basePackages = "net.genieworks.api.mapper")
 public class DataSourceConfig {
 
 	@Autowired
@@ -77,6 +77,15 @@ public class DataSourceConfig {
 
 		return sqlSessionFactoryBean;
 	}
+
+//	@Bean
+//	public SqlSessionFactory sqlSessionFactory(ApplicationContext applicationContext) throws Exception {
+//
+//		final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//		sqlSessionFactoryBean.setDataSource(dataSource());
+//
+//		return sqlSessionFactoryBean.getObject();
+//	}
 
 	@Bean
 	public DataSourceTransactionManager transactionManager() {
