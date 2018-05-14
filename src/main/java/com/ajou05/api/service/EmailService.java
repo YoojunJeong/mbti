@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ajou05.api.bean.message.EmailMessageBean;
-import com.ajou05.api.dao.CommonDao;
+import com.ajou05.api.repository.CommonDao;
 
 @Service
 public class EmailService 
 {
-	@Autowired
-	private CommonDao commonDao;
 	@Autowired
 	private MailUtil mailUtil;
 	

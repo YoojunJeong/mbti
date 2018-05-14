@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="MBTI" />
         <module name="Picnique-Admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="MBTI" target="1.8" />
       <module name="Picnique-Admin" target="1.8" />
     </bytecodeTargetLevel>
   </component>

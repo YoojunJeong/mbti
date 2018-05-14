@@ -1,4 +1,4 @@
-package com.ajou05.api.dao;
+package com.ajou05.api.repository;
 
 import java.util.ArrayList;
 import java.util.List;

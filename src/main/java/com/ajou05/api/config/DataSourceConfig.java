@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = "net.genieworks.api.mapper")
+@MapperScan(basePackages = "com.ajou05.api.mapper")
 public class DataSourceConfig {
 
 	@Autowired
@@ -72,8 +72,8 @@ public class DataSourceConfig {
 
 		final SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource);
-		sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource(env.getProperty("mybatis.configLocation")));
-		sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources(env.getProperty("mybatis.mapperLocations")));
+//		sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource(env.getProperty("mybatis.configLocation")));
+//		sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources(env.getProperty("mybatis.mapperLocations")));
 
 		return sqlSessionFactoryBean;
 	}

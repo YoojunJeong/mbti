@@ -17,6 +17,6 @@ public class BaseRootApplication {
             System.setProperty("spring.profiles.active", "dev");
         }
         ConfigurableApplicationContext ctx = SpringApplication.run(BaseRootApplication.class, args);
-        System.out.println(":: Picnique ADMIN [" + ObjectUtil.join(ctx.getEnvironment().getActiveProfiles()) + "]Server ON");
+        System.out.println(":: MBTI [" + ObjectUtil.join(ctx.getEnvironment().getActiveProfiles()) + "]Server ON");
     }
 }
