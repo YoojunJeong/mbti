@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="net.genieworks.api.dao.CommonDao">
+<mapper namespace="com.ajou05.api.dao.CommonDao">
     <select id="getTables"  resultType="JSONObject">
         SELECT * FROM FAQS LIMIT 1
     </select>
